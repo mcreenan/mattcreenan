@@ -30,7 +30,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.5rem;
+    padding: 8px;
+    position: relative;
 }
 
 .button:hover {
@@ -38,9 +39,22 @@ body {
     transform: translate(-2px, -2px);
 }
 
+.button i,
+.button img {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 4px;
+}
+
 .button span {
     font-size: 0.9rem;
-    margin-top: auto;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
 }
 
 .os-title {
@@ -99,9 +113,11 @@ body {
     animation: borderGradient 3s linear infinite;
     background-clip: padding-box;
     overflow: visible;
-    width: min(95vw, 640px);
-    margin: 0 1rem;
+    width: calc(100vw - 20px);
+    max-width: 640px;
+    margin: 0 auto;
     z-index: 1;
+    view-transition-name: window;
 }
 
 .headshot-image {
@@ -191,11 +207,9 @@ body {
 @media (max-width: 640px) {
     .splash-screen {
         height: min(90vh, 500px);
-        width: min(90vw, 440px);
     }
 
     .window-inner .flex.items-center {
-        flex-direction: column;
         text-align: center;
         gap: 1rem;
     }
@@ -207,15 +221,17 @@ body {
     .button {
         width: 72px;
         height: 72px;
-        padding: 0.35rem;
+        padding: 6px;
     }
 
-    .button i {
+    .button i,
+    .button img {
         font-size: 1.5rem;
     }
 
     .button span {
         font-size: 0.8rem;
+        bottom: 6px;
     }
 
     .window-content {
@@ -230,14 +246,20 @@ body {
 }
 
 @media (max-width: 380px) {
-    .splash-screen {
-        width: min(90vw, 320px);
+    .button {
+        width: 60px;
+        height: 60px;
+        padding: 4px;
     }
 
-    .button {
-        width: 64px;
-        height: 64px;
-        padding: 0.25rem;
+    .button i,
+    .button img {
+        font-size: 1.25rem;
+    }
+
+    .button span {
+        font-size: 0.7rem;
+        bottom: 4px;
     }
 
     .os-title {
@@ -305,4 +327,22 @@ body {
 .window-content a:not(.button):not(.desktop-icon):hover {
     color: #0066FF;
     text-decoration: none;
+}
+
+.button i.fa-solid {
+    margin-top: 0 !important;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button[disabled] {
+    pointer-events: none;
+    box-shadow: none;
+}
+
+.button[disabled]:hover {
+    transform: none;
+    box-shadow: none;
 }

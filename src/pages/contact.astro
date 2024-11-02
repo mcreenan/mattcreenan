@@ -1,75 +1,36 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Layout from "../layouts/Layout.astro";
+import Window from "../components/Window.astro";
+import Button from "../components/Button.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead
-            title={`Contact - ${SITE_TITLE}`}
-            description={SITE_DESCRIPTION}
-        />
-    </head>
-    <body>
-        <Header />
-        <main class="h-screen overflow-hidden">
-            <section class="flex flex-col items-center justify-center h-full">
-                <div
-                    class="window fixed splash-screen content-window"
-                    style="height: 300px;"
-                >
-                    <div class="window-titlebar">
-                        <span class="window-title">Contact</span>
-                    </div>
-                    <div class="window-inner">
-                        <div class="window-content">
-                            <div
-                                class="flex justify-center items-center gap-4 flex-wrap mt-8"
-                            >
-                                <a
-                                    href="https://twitter.com/mcreenan"
-                                    target="_blank"
-                                    class="button flex flex-col justify-between py-2"
-                                >
-                                    <i
-                                        class="fa-brands fa-twitter text-4xl mt-2"
-                                    ></i>
-                                    <span>Twitter</span>
-                                </a>
-                                <a
-                                    href="https://bsky.app/profile/matt.creenan.me"
-                                    target="_blank"
-                                    class="button flex flex-col justify-between py-2"
-                                >
-                                    <img
-                                        src="/images/bluesky-black.svg"
-                                        alt="Bluesky"
-                                        class="w-8 h-8 mt-2 mx-auto"
-                                    />
-                                    <span>Bluesky</span>
-                                </a>
-                                <a
-                                    href="https://github.com/mcreenan"
-                                    target="_blank"
-                                    class="button flex flex-col justify-between py-2"
-                                >
-                                    <i class="fa-brands fa-github text-4xl mt-2"
-                                    ></i>
-                                    <span>GitHub</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <a href="/" class="desktop-icon">
-                <i class="fa-solid fa-house"></i>
-                <span>Home</span>
-            </a>
-        </main>
-        <Footer />
-    </body>
-</html>
+<Layout title="Contact">
+    <Window title="Contact" height="300px" contentWindow>
+        <div class="flex justify-center items-center gap-4 flex-wrap mt-8">
+            <Button
+                href="https://twitter.com/mcreenan"
+                icon="fa-brands fa-twitter text-4xl"
+                label="Twitter"
+                external
+            />
+            <Button
+                href="https://bsky.app/profile/matt.creenan.me"
+                icon="/images/bluesky-black.svg"
+                label="Bluesky"
+                external
+            />
+            <Button
+                href="https://github.com/mcreenan"
+                icon="fa-brands fa-github text-4xl"
+                label="GitHub"
+                external
+            />
+            <Button
+                href="https://www.linkedin.com/in/matt-creenan-60567756/"
+                icon="fa-brands fa-linkedin text-4xl"
+                label="LinkedIn"
+                external
+            />
+        </div>
+    </Window>
+</Layout>

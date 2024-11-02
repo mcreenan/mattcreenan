@@ -1,0 +1,29 @@
+---
+interface Props {
+    href: string;
+    icon: string;
+    label: string;
+    external?: boolean;
+    disabled?: boolean;
+}
+
+const { href, icon, label, external = false, disabled = false } = Astro.props;
+---
+
+{
+    disabled ? (
+        <button
+            class="button cursor-not-allowed opacity-60"
+            disabled
+            title="Coming soon"
+        >
+            <i class={icon} />
+            <span>{label}</span>
+        </button>
+    ) : (
+        <a href={href} target={external ? "_blank" : undefined} class="button">
+            <i class={icon} />
+            <span>{label}</span>
+        </a>
+    )
+}

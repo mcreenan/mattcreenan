@@ -1,8 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Image } from "astro:assets";
+import headshotImage from "../../public/images/headshot.png";
 ---
 
 <!doctype html>
@@ -11,20 +11,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
 		<main class="h-screen overflow-hidden">
 			<section class="flex flex-col items-center justify-center h-full">
-				<div
-					class="window fixed splash-screen"
-					style="width: 640px; height: 400px;"
-				>
+				<div class="window fixed splash-screen">
 					<div class="window-inner">
 						<div
 							class="flex items-center justify-center mt-8 gap-6"
 						>
-							<img
-								src="/images/headshot.png"
-								alt="Matt Creenan"
+							<Image
+								src={headshotImage}
+								alt="A man smiling"
 								class="headshot-image"
 							/>
 							<h1 class="text-6xl font-bold os-title">
@@ -46,8 +42,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 								href="/work"
 								class="button flex flex-col justify-between py-2"
 							>
-								<i class="fa-solid fa-briefcase text-4xl mt-2"
-								></i>
+								<i class="fa-regular fa-building text-4xl"></i>
 								<span>Work</span>
 							</a>
 							<a
@@ -62,6 +57,5 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				</div>
 			</section>
 		</main>
-		<Footer />
 	</body>
 </html>

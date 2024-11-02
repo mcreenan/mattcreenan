@@ -1,0 +1,27 @@
+---
+interface Props {
+    title?: string;
+    height?: string;
+    contentWindow?: boolean;
+}
+
+const { title, height = "auto", contentWindow = false } = Astro.props;
+---
+
+<div
+    class={`window fixed splash-screen ${contentWindow ? "content-window" : ""}`}
+    style={`height: ${height};`}
+>
+    {
+        title && (
+            <div class="window-titlebar">
+                <span class="window-title">{title}</span>
+            </div>
+        )
+    }
+    <div class="window-inner">
+        <div class="window-content">
+            <slot />
+        </div>
+    </div>
+</div>

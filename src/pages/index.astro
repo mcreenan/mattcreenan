@@ -1,8 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { Image } from "astro:assets";
-import headshotImage from "../../public/images/headshot.png";
 ---
 
 <!doctype html>
@@ -13,14 +11,17 @@ import headshotImage from "../../public/images/headshot.png";
 	<body>
 		<main class="h-screen overflow-hidden">
 			<section class="flex flex-col items-center justify-center h-full">
-				<div class="window fixed splash-screen">
+				<div
+					class="window fixed splash-screen"
+					style="width: 640px; height: 400px;"
+				>
 					<div class="window-inner">
 						<div
 							class="flex items-center justify-center mt-8 gap-6"
 						>
-							<Image
-								src={headshotImage}
-								alt="A man smiling"
+							<img
+								src="/images/headshot.png"
+								alt="Matt Creenan"
 								class="headshot-image"
 							/>
 							<h1 class="text-6xl font-bold os-title">
@@ -35,7 +36,7 @@ import headshotImage from "../../public/images/headshot.png";
 								href="/about"
 								class="button flex flex-col justify-between py-2"
 							>
-								<i class="ph ph-user text-4xl mt-2"></i>
+								<i class="ph ph-user text-4xl"></i>
 								<span>About</span>
 							</a>
 							<a
@@ -49,7 +50,7 @@ import headshotImage from "../../public/images/headshot.png";
 								href="/contact"
 								class="button flex flex-col justify-between py-2"
 							>
-								<i class="ph ph-envelope text-4xl mt-2"></i>
+								<i class="ph ph-envelope text-4xl"></i>
 								<span>Contact</span>
 							</a>
 						</div>

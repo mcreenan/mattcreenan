@@ -1,13 +1,21 @@
 ---
 interface Props {
     href: string;
-    icon: string;
+    icon?: string;
+    image?: string;
     label: string;
     external?: boolean;
     disabled?: boolean;
 }
 
-const { href, icon, label, external = false, disabled = false } = Astro.props;
+const {
+    href,
+    icon,
+    image,
+    label,
+    external = false,
+    disabled = false,
+} = Astro.props;
 ---
 
 {
@@ -17,12 +25,20 @@ const { href, icon, label, external = false, disabled = false } = Astro.props;
             disabled
             title="Coming soon"
         >
-            <i class={icon} />
+            {image ? (
+                <img src={image} alt={label} class="w-10 h-10" />
+            ) : (
+                <i class={icon} />
+            )}
             <span>{label}</span>
         </button>
     ) : (
         <a href={href} target={external ? "_blank" : undefined} class="button">
-            <i class={icon} />
+            {image ? (
+                <img src={image} alt={label} class="w-10 h-10" />
+            ) : (
+                <i class={icon} />
+            )}
             <span>{label}</span>
         </a>
     )

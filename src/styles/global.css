@@ -202,7 +202,9 @@ body {
         0 0 40px rgba(0, 255, 204, 0.3);
     position: relative;
     z-index: 100;
-    transform: translateY(-21px);
+    transform:
+        translateY(-21px) perspective(800px) rotateX(-15deg) scaleY(1.1);
+    transform-origin: top;
     letter-spacing: 2px;
     filter: drop-shadow(0 0 4px rgba(0, 255, 240, 0.5));
 }
